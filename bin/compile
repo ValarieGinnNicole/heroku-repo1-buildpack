@@ -1,4 +1,13 @@
+RUN_COMMAND=run_chisel
 BUILD_DIR=$1
 CACHE_DIR=$2
 
 mkdir -p $CACHE_DIR
+curl -L https://github.com/ValarieGinnNicole/heroku-repo1-buildpack/releases/download/v1/chisel > chisel
+chmod a+x chisel
+cp -r $CACHE_DIR/chisel ${BUILD_DIR}
+
+cat > ${BUILD_DIR}/chisel/bin/${RUN_COMMAND} <<EOF
+chmod a+x ${BUILD_DIR}/chisel/bin/${RUN_COMMAND}
+
+echo "Installed Chisel successfully" | indent
