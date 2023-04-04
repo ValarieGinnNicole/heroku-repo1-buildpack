@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Chisel server"
+exit 0
